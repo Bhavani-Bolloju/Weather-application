@@ -1,6 +1,6 @@
 // import React from 'react'
 import SearchSideBar from "../components/search/SearchSideBar";
-import WeatherResults from "../components/weather/WeatherResults";
+import WeatherResults from "../components/weather-results/WeatherResults";
 
 function Homepage() {
   return (
