@@ -4,76 +4,21 @@ import sunrise from "../../assets/sunrise.svg";
 import sunset from "../../assets/sunset.svg";
 import wind from "../../assets/wind.svg";
 import humidity from "../../assets/humidity.svg";
-import temperature from "../../assets/temperature.svg";
+// import temperature from "../../assets/temperature.svg";
+
+import WindHumidityCard from "../../utils/UI/WindHumidityCardProps";
+import SunriseSunsetCard from "../../utils/UI/SunriseSunsetCard";
 import { format } from "date-fns";
-import useFetch from "../../utils/customHoooks/useFetch";
+// import WeatherOverviewDescription from "./WeatherOverviewDescription";
 
-interface SunriseSunsetCardProps {
-  icon: string;
-  value: number;
-  title: string;
-}
-
-interface WindHumidityCardProps {
-  icon: string;
-  value: string;
-  title: string;
-}
-
-const SunriseSunsetCard = function ({
-  icon,
-  value,
-  title
-}: SunriseSunsetCardProps) {
-  const date = new Date(value);
-
-  const formatTime = format(date, "hh:mm aaa");
-
-  return (
-    <div>
-      <div className="flex items-center justify-center ">
-        <img src={icon} alt={title} className="w-[25px]  h-[28px]" />
-        <p className="text-slate-500 capitalize font-medium">{title}</p>
-      </div>
-      <p className="text-slate-600 font-medium ml-2 capitalize mt-[-2px]">
-        {formatTime}
-      </p>
-    </div>
-  );
-};
-
-const WindHumidityCard = function ({
-  icon,
-  title,
-  value
-}: WindHumidityCardProps) {
-  return (
-    <div className="flex flex-col justify-start">
-      <div className="flex items-center gap-[2px]">
-        <img src={icon} alt={title} />
-        <p className="text-slate-500 capitalize font-medium leading-1">
-          {title}
-        </p>
-      </div>
-      <div className="font-medium text-slate-600 ml-1">
-        <span className="text-lg">{value}</span>
-        {title === "wind" && (
-          <span className="ml-[2px] text-slate-500">m/s</span>
-        )}
-        {title === "humidity" && (
-          <span className="ml-[2px] text-slate-500">%</span>
-        )}
-      </div>
-    </div>
-  );
-};
+// import useFetch from "../../utils/customHoooks/useFetch";
 
 function CurrentWeatherOverview() {
   // const { data, isLoading, error } = useFetch("weather");
 
   // localStorage.setItem("currentWeather", JSON.stringify(data));
 
-  const currentWeather = localStorage.getItem("currentWeather");
+  const currentWeather = localStorage.getItem("onecall");
   let data;
   if (currentWeather) {
     data = JSON.parse(currentWeather);
@@ -82,24 +27,24 @@ function CurrentWeatherOverview() {
   console.log(data);
   const isLoading = false;
 
-  console.log(data?.weather);
-  console.log(data);
+  // console.log(data?.weather);
+  // console.log(data);
 
   // https://openweathermap.org/img/wn/10d@2x.png
 
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row-reverse justify-around">
       <div className="min-h-20">
         {isLoading && !data ? (
           <Skeleton height={230} width={320} borderRadius={5}></Skeleton>
         ) : (
           <div className="border-2 border-slate-100 shadow-lg shadow-slate-50 py-5 px-10 rounded-lg">
-            <div className="flex justify-center gap-10">
+            <div className="flex justify-center gap-14">
               <div>
                 <div className="flex items-center">
                   <div className="w-[70px] h-auto ml-[-20px]">
                     <img
-                      src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}
+                      src={`https://openweathermap.org/img/wn/${data?.current?.weather[0]?.icon}@2x.png`}
                       alt="weather icon"
                       width={45}
                       height={45}
@@ -108,7 +53,7 @@ function CurrentWeatherOverview() {
                   </div>
                   <div className="text-slate-700 font-medium flex">
                     <span className="text-3xl ml-[-5px]">
-                      {data?.main?.temp}
+                      {data?.current?.temp}
                     </span>
                     <span className="text-lg align-top ml-[0.5px]">&deg;</span>
                     <span className="align-top text-xl flex items-baseline self-start text-slate-600 gap-[2px] ml-1 font-normal">
@@ -118,16 +63,16 @@ function CurrentWeatherOverview() {
                     </span>
                   </div>
                 </div>
-                <div className="capitalize text-base text-slate-600 mt-[-10px]">
-                  {data?.weather[0]?.description}
+                <div className="capitalize text-base text-slate-600 mt-[-15px]">
+                  {data?.current?.weather[0]?.description}
                 </div>
-                <div className="flex items-center gap-1 mt-2 font-medium">
-                  <span>
+                <div className="flex items-center gap-1 mt-3 font-medium">
+                  {/* <span>
                     <img src={temperature} alt="temperature" />
-                  </span>
+                  </span> */}
                   <span className="text-slate-600">Feels like - </span>
                   <span className="text-slate-500 flex items-start">
-                    <span>{data?.main["feels_like"]}</span>
+                    <span>{data?.current?.["feels_like"]}</span>
                     <span className="ml-[2px]">&deg;</span>
                     <span className="text-[14px] self-start">C</span>
                   </span>
@@ -137,39 +82,44 @@ function CurrentWeatherOverview() {
                 <SunriseSunsetCard
                   icon={sunrise}
                   title="sunrise"
-                  value={data?.sys?.sunrise}
+                  value={data?.current?.sunrise}
                 />
                 <SunriseSunsetCard
                   icon={sunset}
                   title="sunset"
-                  value={data?.sys?.sunset}
+                  value={data?.current?.sunset}
                 />
               </div>
             </div>
-            <div className="flex justify-between mt-4 p-2  rounded-md border-t-2">
+            <div className="flex justify-between mt-4 p-2  border-t-2">
               <WindHumidityCard
                 icon={wind}
                 title="wind"
-                value={data?.wind?.speed}
+                value={data?.current?.["wind_speed"]}
               />
               <WindHumidityCard
                 icon={humidity}
                 title="humidity"
-                value={data?.main?.humidity}
+                value={data?.current?.humidity}
               />
             </div>
           </div>
         )}
       </div>
-      <div className="basis-[40%]">
-        <p>overview description</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-          consequatur non veniam voluptate assumenda, eveniet iste officiis
-          natus delectus unde repellat magni ipsa recusandae harum nobis
-          laboriosam adipisci aspernatur rem?
-        </p>
+      <div className="basis-[40%] flex flex-col items-center mt-5">
+        <div className="flex gap-1 text-slate-600 items-baseline">
+          <span className="text-5xl ">
+            {format(new Date(data?.current?.dt * 1000), "hh:mm")}
+          </span>
+          <span className="font-medium text-lg text-slate-500 uppercase">
+            {format(new Date(data?.current?.dt * 1000), "aaa")}
+          </span>
+        </div>
+        <div className="ml-2 mt-1 text-base font-medium text-slate-600">
+          {format(new Date(data?.current?.dt * 1000), "ccc, PPP")}
+        </div>
       </div>
+      {/* <WeatherOverviewDescription></WeatherOverviewDescription> */}
     </div>
   );
 }
