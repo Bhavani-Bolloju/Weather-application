@@ -33,7 +33,7 @@ function CurrentWeatherOverview() {
   // https://openweathermap.org/img/wn/10d@2x.png
 
   return (
-    <div className="flex flex-row-reverse justify-around">
+    <div className="flex justify-around">
       <div className="min-h-20">
         {isLoading && !data ? (
           <Skeleton height={230} width={320} borderRadius={5}></Skeleton>
