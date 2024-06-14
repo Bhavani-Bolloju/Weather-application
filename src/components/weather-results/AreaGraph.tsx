@@ -1,7 +1,7 @@
 // import React from 'react'
-import { ResponsiveLine } from "@nivo/line";
+import { ResponsiveLine, PointTooltipProps } from "@nivo/line";
 
-import { Dataset } from "./HourlyWeatherGraph";
+import { Dataset } from "../../utils/types/types";
 
 import { format } from "date-fns";
 
@@ -9,7 +9,7 @@ interface AreaGraphProp {
   data: Dataset[];
 }
 
-const CustomTooltip = function ({ point }) {
+const CustomTooltip = function ({ point }: PointTooltipProps) {
   const date = new Date(+point.data.xFormatted * 1000);
   const formatDate = format(date, "hh:mm aaa");
   return (
