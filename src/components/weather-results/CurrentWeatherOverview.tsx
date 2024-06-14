@@ -15,8 +15,12 @@ import { format } from "date-fns";
 
 function CurrentWeatherOverview() {
   // const { data, isLoading, error } = useFetch("weather");
+  // const { data, isLoading, error } = useFetch("onecall");
+  // console.log(data);
+  // console.log(data);
 
   // localStorage.setItem("currentWeather", JSON.stringify(data));
+  // localStorage.setItem("onecall", JSON.stringify(data));
 
   const currentWeather = localStorage.getItem("onecall");
   let data;
@@ -24,7 +28,7 @@ function CurrentWeatherOverview() {
     data = JSON.parse(currentWeather);
   }
 
-  console.log(data);
+  // console.log(data);
   const isLoading = false;
 
   // console.log(data?.weather);
@@ -67,9 +71,6 @@ function CurrentWeatherOverview() {
                   {data?.current?.weather[0]?.description}
                 </div>
                 <div className="flex items-center gap-1 mt-3 font-medium">
-                  {/* <span>
-                    <img src={temperature} alt="temperature" />
-                  </span> */}
                   <span className="text-slate-600">Feels like - </span>
                   <span className="text-slate-500 flex items-start">
                     <span>{data?.current?.["feels_like"]}</span>
@@ -119,9 +120,11 @@ function CurrentWeatherOverview() {
           {format(new Date(data?.current?.dt * 1000), "ccc, PPP")}
         </div>
       </div>
-      {/* <WeatherOverviewDescription></WeatherOverviewDescription> */}
     </div>
   );
+}
+{
+  /* <WeatherOverviewDescription></WeatherOverviewDescription> */
 }
 
 export default CurrentWeatherOverview;
