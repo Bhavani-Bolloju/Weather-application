@@ -67,7 +67,7 @@ function HourlyWeatherGraph() {
   console.log(filterData);
   console.log(data);
   return (
-    <div style={{ height: 300, width: "100%" }}>
+    <div style={{ height: 250, width: "98%" }} className="mt-10">
       {formatData && <AreaGraph data={formatData} />}
     </div>
   );

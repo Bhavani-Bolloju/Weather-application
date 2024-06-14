@@ -27,7 +27,7 @@ function AreaGraph({ data }: AreaGraphProp) {
   return (
     <ResponsiveLine
       data={data}
-      margin={{ top: 50, left: 50, bottom: 50, right: 50 }}
+      margin={{ top: 50, left: 20, bottom: 50, right: 50 }}
       xScale={{
         type: "point"
       }}
@@ -61,7 +61,7 @@ function AreaGraph({ data }: AreaGraphProp) {
       enableGridX={false}
       enableGridY={false}
       pointSize={8}
-      pointColor="#f1f5f9"
+      pointColor="white"
       pointBorderWidth={2}
       pointBorderColor="#94a3b8"
       enableArea={true}
@@ -115,6 +115,16 @@ function AreaGraph({ data }: AreaGraphProp) {
       ]}
       fill={[{ match: "*", id: "gradientA" }]}
       colors={["#94a3b8", "#1d3557"]}
+      theme={{
+        dots: {
+          text: {
+            fill: "#64748b",
+            fontSize: 12,
+            fontWeight: 500,
+            fontFamily: "Barlow"
+          }
+        }
+      }}
     />
   );
 }
