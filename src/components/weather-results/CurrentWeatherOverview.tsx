@@ -42,7 +42,7 @@ function CurrentWeatherOverview() {
         {isLoading && !data ? (
           <Skeleton height={230} width={320} borderRadius={5}></Skeleton>
         ) : (
-          <div className="border-2 border-slate-100 shadow-lg shadow-slate-50 py-5 px-10 rounded-lg">
+          <div className="border-2 border-slate-100   py-5 px-10 rounded-lg">
             <div className="flex justify-center gap-14">
               <div>
                 <div className="flex items-center">
