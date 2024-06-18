@@ -12,12 +12,20 @@ function DayWeather({
   index
 }: DayWeatherProp) {
   const date = new Date(dt * 1000);
-  const present = new Date().getDay();
-  const day = date.getDay();
   let dateFormat = format(date, "EEE");
-  if (present - 1 === day) dateFormat = "yesterday";
-  if (present === day) dateFormat = "today";
-  if (present + 1 === day) dateFormat = "tomorrow";
+
+  const weather_day_of_year = format(date, "Do");
+  const present_day_of_year = format(new Date(), "Do");
+
+  const weatherDay = parseInt(weather_day_of_year);
+  const presentDay = parseInt(present_day_of_year);
+
+  // console.log(present, currDay);
+
+  if (presentDay - 1 === weatherDay) dateFormat = "yesterday";
+  if (presentDay === weatherDay) dateFormat = "today";
+  if (presentDay + 1 === weatherDay) dateFormat = "tomorrow";
+
   return (
     <Slide index={index}>
       <div className="min-w-[180px] w-fit bg-white border border-slate-200 rounded-md p-5 shadow-md shadow-slate-50 bg-gradient-to-tr from-white to-slate-50">

@@ -12,22 +12,22 @@ const WindHumidityCard = function ({
   value
 }: WindHumidityCardProps) {
   return (
-    <div className="flex flex-col justify-start">
-      <div className="flex items-center gap-[2px]">
-        <img src={icon} alt={title} />
-        <p className="text-slate-500 capitalize font-medium leading-1">
-          {title}
-        </p>
+    <div className="grid grid-cols-icons gap-x-1 leading-[15px]">
+      <div className="row-start-1 row-end-3 col-span-1">
+        <img src={icon} alt={title} className="w-full h-full" />
       </div>
-      <div className="font-medium text-slate-600 ml-1">
-        <span className="text-lg">{value}</span>
+      <div className="font-medium text-slate-600">
+        <span className="text-lg leading-[15px]">{value}</span>
         {title === "wind" && (
-          <span className="ml-[2px] text-slate-500">m/s</span>
+          <span className="ml-[1px] text-slate-500">m/s</span>
         )}
         {title === "humidity" && (
-          <span className="ml-[2px] text-slate-500">%</span>
+          <span className=" text-slate-500 ml-1">%</span>
         )}
       </div>
+      <p className="text-slate-500 capitalize font-medium mb-1 text-sm">
+        {title}
+      </p>
     </div>
   );
 };

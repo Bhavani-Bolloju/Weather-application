@@ -15,9 +15,11 @@ import { format } from "date-fns";
 
 function CurrentWeatherOverview() {
   // const { data, isLoading, error } = useFetch("weather");
-  // const { data, isLoading, error } = useFetch("onecall");
+  // const { data, isLoading } = useFetch("onecall");
   // console.log(data);
   // console.log(data);
+
+  // console.log(oneCalldata);
 
   // localStorage.setItem("currentWeather", JSON.stringify(data));
   // localStorage.setItem("onecall", JSON.stringify(data));
@@ -27,8 +29,8 @@ function CurrentWeatherOverview() {
   if (currentWeather) {
     data = JSON.parse(currentWeather);
   }
-
-  // console.log(data);
+  //
+  // // console.log(data);
   const isLoading = false;
 
   // console.log(data?.weather);
@@ -92,7 +94,7 @@ function CurrentWeatherOverview() {
                 />
               </div>
             </div>
-            <div className="flex justify-between mt-4 p-2  border-t-2">
+            <div className="flex justify-between mt-4 pt-5 p-2  border-t-2">
               <WindHumidityCard
                 icon={wind}
                 title="wind"
