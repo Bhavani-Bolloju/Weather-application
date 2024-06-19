@@ -45,7 +45,7 @@ function CurrentWeatherOverview() {
           <Skeleton height={230} width={320} borderRadius={5}></Skeleton>
         ) : (
           <div className="border-2 border-slate-100   py-5 px-10 rounded-lg">
-            <div className="flex justify-center gap-14">
+            <div className="flex justify-center items-center gap-14">
               <div>
                 <div className="flex items-center">
                   <div className="w-[70px] h-auto ml-[-20px]">
@@ -81,7 +81,7 @@ function CurrentWeatherOverview() {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col mt-4 gap-2">
+              <div className="flex flex-col mt-8 gap-2">
                 <SunriseSunsetCard
                   icon={sunrise}
                   title="sunrise"
@@ -109,7 +109,7 @@ function CurrentWeatherOverview() {
           </div>
         )}
       </div>
-      <div className="basis-[40%] flex flex-col items-center mt-5">
+      <div className="basis-[40%] flex flex-col items-center mt-10">
         <div className="flex gap-1 text-slate-600 items-baseline">
           <span className="text-5xl ">
             {format(new Date(data?.current?.dt * 1000), "hh:mm")}
