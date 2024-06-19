@@ -28,7 +28,7 @@ function DayWeather({
 
   return (
     <Slide index={index}>
-      <div className="min-w-[180px] w-fit bg-white border border-slate-200 rounded-md p-5 shadow-md shadow-slate-50 bg-gradient-to-tr from-white to-slate-50">
+      <div className="w-[95%] m-auto bg-white border border-slate-200 rounded-md p-5 shadow-md shadow-slate-50 bg-gradient-to-tr from-white to-slate-50">
         <span className="capitalize text-slate-500 font-medium text-lg block text-center">
           {dateFormat}
         </span>
