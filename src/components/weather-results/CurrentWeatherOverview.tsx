@@ -6,8 +6,8 @@ import wind from "../../assets/wind.svg";
 import humidity from "../../assets/humidity.svg";
 // import temperature from "../../assets/temperature.svg";
 
-import WindHumidityCard from "../../utils/UI/WindHumidityCardProps";
-import SunriseSunsetCard from "../../utils/UI/SunriseSunsetCard";
+import WindHumidityCard from "../UI/WindHumidityCardProps";
+import SunriseSunsetCard from "../UI/SunriseSunsetCard";
 import { format } from "date-fns";
 // import WeatherOverviewDescription from "./WeatherOverviewDescription";
 
