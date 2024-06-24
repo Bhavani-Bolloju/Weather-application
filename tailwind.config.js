@@ -5,6 +5,10 @@ export default {
     extend: {
       fontFamily: {
         barlow: ["Barlow", "sans-serif"]
+      },
+      gridTemplateColumns: {
+        card: "30px 1fr",
+        icons: "25px 1fr"
       }
     }
   },
