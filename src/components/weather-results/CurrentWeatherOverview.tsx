@@ -9,11 +9,14 @@ import humidity from "../../assets/humidity.svg";
 import WindHumidityCard from "../UI/WindHumidityCardProps";
 import SunriseSunsetCard from "../UI/SunriseSunsetCard";
 import { format } from "date-fns";
+// import { useGetCurrentWeatherQuery } from "../../utils/redux-store/weatherApi";
+// import useCoords from "../../utils/customHoooks/useCoords";
 // import WeatherOverviewDescription from "./WeatherOverviewDescription";
 
 // import useFetch from "../../utils/customHoooks/useFetch";
 
 function CurrentWeatherOverview() {
+  // const { lat, lon } = useCoords();
   // const { data, isLoading, error } = useFetch("weather");
   // const { data, isLoading } = useFetch("onecall");
   // console.log(data);
