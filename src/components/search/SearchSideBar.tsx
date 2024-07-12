@@ -1,24 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { API_key } from "../../utils/customHoooks/useFetch";
+import { useAppDispatch } from "../../utils/redux-store/hooks";
+
+import { setCoords } from "../../utils/redux-store/weatherSlice";
 
 function SearchSideBar() {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const dispatch = useAppDispatch();
 
   // const [city, setCity] = useState(null);
 
   const handleSubmit = async function (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const cityName = inputRef?.current?.value;
-    if (cityName) {
+    if (!cityName) return;
+
+    console.log(cityName, "search string");
+    try {
       const req = await fetch(
         `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${API_key}`
       );
 
       const res = await req.json();
-      console.log(res, "cities");
-      //dispatch the result to the redux store
-      // setCity(res[0]);
-      //do something
+
+      if (res.length <= 0) {
+        throw new Error(`Try again with different location`);
+      }
+
+      const { lat, lon } = res[0];
+
+      // console.log(lat, lon);
+      dispatch(setCoords({ lat, lon }));
+    } catch (error) {
+      console.log(error);
     }
   };
 

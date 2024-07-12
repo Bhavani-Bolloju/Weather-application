@@ -20,6 +20,8 @@ const baseQuery = fetchBaseQuery({
 
 const baseURL = "https://api.openweathermap.org/data/2.5/";
 
+`https://api.openweathermap.org/data/2.5/onecall?lat=17.4358528&lon=78.4400384&exclude=minutely,hourly,daily,alerts&units=metric&appid=363c423f8d11223f86fa7bd54b3f93b9`;
+
 const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
   args,
   api,
@@ -56,6 +58,7 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
   baseQuery: customBaseQuery,
+
   endpoints: (builder) => ({
     getCurrentWeather: builder.query<CurrentWeather, void>({
       query: () => {
