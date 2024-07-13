@@ -4,6 +4,8 @@ import { useAppDispatch } from "../../utils/redux-store/hooks";
 
 import { setCoords } from "../../utils/redux-store/weatherSlice";
 
+import { weatherApi } from "../../utils/redux-store/weatherApi";
+
 function SearchSideBar() {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -32,6 +34,14 @@ function SearchSideBar() {
 
       // console.log(lat, lon);
       dispatch(setCoords({ lat, lon }));
+
+      //refetch through api endpoint
+      dispatch(
+        weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
+          subscribe: false,
+          forceRefetch: true
+        })
+      );
     } catch (error) {
       console.log(error);
     }

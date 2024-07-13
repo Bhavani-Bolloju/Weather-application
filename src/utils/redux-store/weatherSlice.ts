@@ -9,13 +9,15 @@ interface Coords {
 
 interface WeatherState {
   coords: Coords;
+  unit: string;
 }
 
 const initialState: WeatherState = {
   coords: {
     lat: 0,
     lon: 0
-  }
+  },
+  unit: "metric"
 };
 export const weatherSlice = createSlice({
   name: "weather",
@@ -23,10 +25,14 @@ export const weatherSlice = createSlice({
   reducers: {
     setCoords: (state, action) => {
       state.coords = action.payload;
+    },
+
+    setUnit: (state, action) => {
+      state.unit = action.payload;
     }
   }
 });
 
-export const { setCoords } = weatherSlice.actions;
+export const { setCoords, setUnit } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

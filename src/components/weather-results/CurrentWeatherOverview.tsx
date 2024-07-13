@@ -9,6 +9,10 @@ import humidity from "../../assets/humidity.svg";
 import WindHumidityCard from "../UI/WindHumidityCardProps";
 import SunriseSunsetCard from "../UI/SunriseSunsetCard";
 import { format } from "date-fns";
+import { useAppDispatch, useAppSelector } from "../../utils/redux-store/hooks";
+import { setUnit } from "../../utils/redux-store/weatherSlice";
+import { weatherApi } from "../../utils/redux-store/weatherApi";
+
 // import { useGetCurrentWeatherQuery } from "../../utils/redux-store/weatherApi";
 // import useCoords from "../../utils/customHoooks/useCoords";
 // import WeatherOverviewDescription from "./WeatherOverviewDescription";
@@ -16,13 +20,10 @@ import { format } from "date-fns";
 // import useFetch from "../../utils/customHoooks/useFetch";
 
 function CurrentWeatherOverview() {
-  // const { lat, lon } = useCoords();
-  // const { data, isLoading, error } = useFetch("weather");
-  // const { data, isLoading } = useFetch("onecall");
-  // console.log(data);
-  // console.log(data);
+  const dispatch = useAppDispatch();
+  const tempUnit = useAppSelector((state) => state.weather.unit);
 
-  // console.log(oneCalldata);
+  console.log(tempUnit, "current unit");
 
   // localStorage.setItem("currentWeather", JSON.stringify(data));
   // localStorage.setItem("onecall", JSON.stringify(data));
@@ -32,14 +33,22 @@ function CurrentWeatherOverview() {
   if (currentWeather) {
     data = JSON.parse(currentWeather);
   }
-  //
-  // // console.log(data);
+
   const isLoading = false;
 
-  // console.log(data?.weather);
-  // console.log(data);
-
   // https://openweathermap.org/img/wn/10d@2x.png
+
+  const handlerUnits = function (unit: string) {
+    if (tempUnit !== unit) {
+      dispatch(setUnit(unit));
+      dispatch(
+        weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
+          subscribe: false,
+          forceRefetch: true
+        })
+      );
+    }
+  };
 
   return (
     <div className="flex justify-around">
@@ -66,9 +75,19 @@ function CurrentWeatherOverview() {
                     </span>
                     <span className="text-lg align-top ml-[0.5px]">&deg;</span>
                     <span className="align-top text-xl flex items-baseline self-start text-slate-600 gap-[2px] ml-1 font-normal">
-                      <button className="outline-none self-start">C</button>
+                      <button
+                        className="outline-none self-start"
+                        onClick={() => handlerUnits("metric")}
+                      >
+                        C
+                      </button>
                       <span className="w-[2px] h-4 bg-slate-400 self-center"></span>
-                      <button className="outline-none self-start">F</button>
+                      <button
+                        className="outline-none self-start"
+                        onClick={() => handlerUnits("imperial")}
+                      >
+                        F
+                      </button>
                     </span>
                   </div>
                 </div>

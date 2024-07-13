@@ -29,7 +29,9 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 ) => {
   const state = api.getState() as RootState;
 
-  const { lat, lon } = state.weather.coords;
+  const { coords, unit } = state.weather;
+
+  const { lat, lon } = coords;
 
   let newArgs = args.url;
 
@@ -47,10 +49,12 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 
       urlStr.searchParams.set("lat", lat + "");
       urlStr.searchParams.set("lon", lon + "");
+      urlStr.searchParams.set("units", unit);
 
       newArgs = url + urlStr.search;
     }
   }
+  console.log(newArgs);
 
   return baseQuery(newArgs, api, extraOptions);
 };
@@ -58,7 +62,7 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
   baseQuery: customBaseQuery,
-
+  refetchOnMountOrArgChange: true,
   endpoints: (builder) => ({
     getCurrentWeather: builder.query<CurrentWeather, void>({
       query: () => {
