@@ -23,7 +23,7 @@ function CurrentWeatherOverview() {
   const dispatch = useAppDispatch();
   const tempUnit = useAppSelector((state) => state.weather.unit);
 
-  console.log(tempUnit, "current unit");
+  // console.log(tempUnit, "current unit");
 
   // localStorage.setItem("currentWeather", JSON.stringify(data));
   // localStorage.setItem("onecall", JSON.stringify(data));
@@ -76,14 +76,19 @@ function CurrentWeatherOverview() {
                     <span className="text-lg align-top ml-[0.5px]">&deg;</span>
                     <span className="align-top text-xl flex items-baseline self-start text-slate-600 gap-[2px] ml-1 font-normal">
                       <button
-                        className="outline-none self-start"
+                        className={`outline-none self-start ${
+                          tempUnit === "metric" && "text-slate-600 font-medium"
+                        }`}
                         onClick={() => handlerUnits("metric")}
                       >
                         C
                       </button>
                       <span className="w-[2px] h-4 bg-slate-400 self-center"></span>
                       <button
-                        className="outline-none self-start"
+                        className={`outline-none self-start ${
+                          tempUnit === "imperial" &&
+                          "text-slate-600 font-medium"
+                        }`}
                         onClick={() => handlerUnits("imperial")}
                       >
                         F

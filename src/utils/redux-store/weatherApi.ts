@@ -54,7 +54,7 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
       newArgs = url + urlStr.search;
     }
   }
-  console.log(newArgs);
+  // console.log(newArgs);
 
   return baseQuery(newArgs, api, extraOptions);
 };
