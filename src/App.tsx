@@ -13,7 +13,7 @@ function App() {
   useCoords();
   const [skip, setSkip] = useState(true);
   const coords = useAppSelector((state) => state.weather.coords);
-  console.log(coords, "current coords");
+  // console.log(coords, "current coords");
 
   const { data, refetch } = useGetCurrentWeatherQuery(undefined, { skip });
 
@@ -30,6 +30,9 @@ function App() {
       }
     }
   }, [coords.lat, coords.lon, skip, refetch]);
+
+  // useEffect(()=>{})
+
   //
   return (
     <div className="font-barlow font-normal text-base text-slate-700 min-h-screen bg-slate-50 py-10">
