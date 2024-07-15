@@ -64,15 +64,15 @@ function CurrentWeatherOverview() {
   // https://openweathermap.org/img/wn/10d@2x.png
 
   const handlerUnits = function (unit: string) {
-    // if (tempUnit !== unit) {
-    //   dispatch(setUnit(unit));
-    //   dispatch(
-    //     weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
-    //       subscribe: false,
-    //       forceRefetch: true
-    //     })
-    //   );
-    // }
+    if (tempUnit !== unit) {
+      dispatch(setUnit(unit));
+      dispatch(
+        weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
+          subscribe: false,
+          forceRefetch: true
+        })
+      );
+    }
   };
 
   return (
@@ -159,11 +159,13 @@ function CurrentWeatherOverview() {
                 <WindHumidityCard
                   icon={wind}
                   title="wind"
+                  unit={tempUnit}
                   value={data?.current?.["wind_speed"]}
                 />
                 <WindHumidityCard
                   icon={humidity}
                   title="humidity"
+                  unit=""
                   value={data?.current?.humidity}
                 />
               </div>

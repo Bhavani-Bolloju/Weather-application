@@ -2,14 +2,16 @@
 
 interface WindHumidityCardProps {
   icon: string;
-  value: string;
+  value: number;
   title: string;
+  unit?: string;
 }
 
 const WindHumidityCard = function ({
   icon,
   title,
-  value
+  value,
+  unit
 }: WindHumidityCardProps) {
   return (
     <div className="grid grid-cols-icons gap-x-1 leading-[15px]">
@@ -19,7 +21,9 @@ const WindHumidityCard = function ({
       <div className="font-medium text-slate-600">
         <span className="text-lg leading-[15px]">{value}</span>
         {title === "wind" && (
-          <span className="ml-[1px] text-slate-500">m/s</span>
+          <span className="ml-[1px] text-slate-500">
+            {unit === "imperial" ? "mph" : "m/s"}
+          </span>
         )}
         {title === "humidity" && (
           <span className=" text-slate-500 ml-1">%</span>
