@@ -93,3 +93,11 @@ export interface CurrentWeather {
     "1h": number;
   };
 }
+
+export interface OnecallCurrentWeather {
+  lat: number;
+  lon: number;
+  timezone: string;
+  timezone_offset: number;
+  current: CurrentWeather;
+}

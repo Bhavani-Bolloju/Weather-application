@@ -5,29 +5,28 @@
 import Homepage from "./pages/Homepage";
 import useCoords from "./utils/customHoooks/useCoords";
 
-import { useAppSelector } from "./utils/redux-store/hooks";
-import { useGetCurrentWeatherQuery } from "./utils/redux-store/weatherApi";
-import { useEffect, useState } from "react";
+// import { useAppSelector } from "./utils/redux-store/hooks";
+// import { useGetCurrentWeatherQuery } from "./utils/redux-store/weatherApi";
+// import { useEffect, useState } from "react";
 
 function App() {
   useCoords();
-  const [skip, setSkip] = useState(true);
-  const coords = useAppSelector((state) => state.weather.coords);
-  // console.log(coords, "current coords");
+  // const [skip, setSkip] = useState(true);
+  // const coords = useAppSelector((state) => state.weather.coords);
 
-  const { data } = useGetCurrentWeatherQuery(undefined, {
-    skip
-  });
+  // const { data } = useGetCurrentWeatherQuery(undefined, {
+  //   skip
+  // });
 
-  // console.log(data);
+  // // console.log(data);
 
-  useEffect(() => {
-    if (coords.lat && coords.lon) {
-      if (skip) {
-        setSkip(false);
-      }
-    }
-  }, [coords.lat, coords.lon, skip]);
+  // useEffect(() => {
+  //   if (coords.lat && coords.lon) {
+  //     if (skip) {
+  //       setSkip(false);
+  //     }
+  //   }
+  // }, [coords.lat, coords.lon, skip]);
 
   return (
     <div className="font-barlow font-normal text-base text-slate-700 min-h-screen bg-slate-50 py-10">

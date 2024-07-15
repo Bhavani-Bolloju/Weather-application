@@ -3,7 +3,7 @@ import {
   fetchBaseQuery,
   BaseQueryFn
 } from "@reduxjs/toolkit/query/react";
-import { CurrentWeather } from "../types/types";
+import { OnecallCurrentWeather } from "../types/types";
 import { RootState } from "./store";
 
 interface QueryProps {
@@ -62,9 +62,8 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
   baseQuery: customBaseQuery,
-  refetchOnMountOrArgChange: true,
   endpoints: (builder) => ({
-    getCurrentWeather: builder.query<CurrentWeather, void>({
+    getCurrentWeather: builder.query<OnecallCurrentWeather, void>({
       query: () => {
         return {
           url: "onecall",
