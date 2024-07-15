@@ -18,7 +18,7 @@ function DailyWeatherDetails() {
   }
 
   const daily = data?.daily;
-  console.log(daily);
+  // console.log(daily);
 
   return (
     <div className="mt-10 mx-5 relative">

@@ -5,7 +5,8 @@ import useCoords from "./useCoords";
 //   link: string;
 // }
 
-// export const API_key = "17e597852bb6a1362851eabe2ab72680";
+// export const API_key = "659e7c6ad40da6278db92ac986ebe09b";
+
 export const API_key = "363c423f8d11223f86fa7bd54b3f93b9";
 const baseURL = "https://api.openweathermap.org/data/2.5/";
 
