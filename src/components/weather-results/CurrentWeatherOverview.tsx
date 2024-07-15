@@ -21,24 +21,24 @@ import { useGetCurrentWeatherQuery } from "../../utils/redux-store/weatherApi";
 // import useFetch from "../../utils/customHoooks/useFetch";
 
 function CurrentWeatherOverview() {
-  const dispatch = useAppDispatch();
-  const { unit: tempUnit, coords } = useAppSelector((state) => state.weather);
+  // const dispatch = useAppDispatch();
+  // const { unit: tempUnit, coords } = useAppSelector((state) => state.weather);
 
-  const [skip, setSkip] = useState(true);
+  // const [skip, setSkip] = useState(true);
 
-  const { data, isLoading, isError } = useGetCurrentWeatherQuery(undefined, {
-    skip
-  });
+  // const { data, isLoading, isError } = useGetCurrentWeatherQuery(undefined, {
+  //   skip
+  // });
 
-  // console.log(isLoading, isError, data);
+  // // console.log(isLoading, isError, data);
 
-  useEffect(() => {
-    if (coords.lat && coords.lon) {
-      if (skip) {
-        setSkip(false);
-      }
-    }
-  }, [coords.lat, coords.lon, skip]);
+  // useEffect(() => {
+  //   if (coords.lat && coords.lon) {
+  //     if (skip) {
+  //       setSkip(false);
+  //     }
+  //   }
+  // }, [coords.lat, coords.lon, skip]);
 
   // console.log(data);
 
@@ -49,30 +49,31 @@ function CurrentWeatherOverview() {
   // localStorage.setItem("currentWeather", JSON.stringify(data));
   // localStorage.setItem("onecall", JSON.stringify(data));
 
-  // const currentWeather = localStorage.getItem("onecall");
-  // let data;
-  // if (currentWeather) {
-  //   data = JSON.parse(currentWeather);
-  // }
+  const currentWeather = localStorage.getItem("onecall");
+  let data;
+  if (currentWeather) {
+    data = JSON.parse(currentWeather);
+  }
 
-  // const isLoading = false;
-  // const isError = false;
-  // const tempUnit = "metric";
+  const isLoading = false;
+  const isError = false;
+  const tempUnit = "metric";
 
   // console.log(data);
 
   // https://openweathermap.org/img/wn/10d@2x.png
 
   const handlerUnits = function (unit: string) {
-    if (tempUnit !== unit) {
-      dispatch(setUnit(unit));
-      dispatch(
-        weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
-          subscribe: false,
-          forceRefetch: true
-        })
-      );
-    }
+    console.log(unit);
+    // if (tempUnit !== unit) {
+    //   dispatch(setUnit(unit));
+    //   dispatch(
+    //     weatherApi.endpoints.getCurrentWeather.initiate(undefined, {
+    //       subscribe: false,
+    //       forceRefetch: true
+    //     })
+    //   );
+    // }
   };
 
   return (
