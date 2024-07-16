@@ -29,7 +29,7 @@ function App() {
   // }, [coords.lat, coords.lon, skip]);
 
   return (
-    <div className="font-barlow font-normal text-base text-slate-700 min-h-screen bg-slate-50 py-10">
+    <div className="font-barlow font-normal text-base text-slate-700 min-h-screen bg-slate-50 bg-red-500 py-10">
       <Homepage />
     </div>
   );
