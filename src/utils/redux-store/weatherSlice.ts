@@ -4,18 +4,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface Coords {
   lat: number;
-  lon: number;
+  lng: number;
 }
 
 interface WeatherState {
   coords: Coords;
+  mapCoords: Coords;
   unit: string;
 }
 
 const initialState: WeatherState = {
   coords: {
     lat: 0,
-    lon: 0
+    lng: 0
+  },
+  mapCoords: {
+    lat: 0,
+    lng: 0
   },
   unit: "metric"
 };
@@ -29,10 +34,13 @@ export const weatherSlice = createSlice({
 
     setUnit: (state, action) => {
       state.unit = action.payload;
+    },
+    setMapCoords: (state, action) => {
+      state.mapCoords = action.payload;
     }
   }
 });
 
-export const { setCoords, setUnit } = weatherSlice.actions;
+export const { setCoords, setUnit, setMapCoords } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

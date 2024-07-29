@@ -17,8 +17,8 @@ const fetcher = async function (url: string) {
 };
 
 const useFetch = function (url: string, exclude: string = "") {
-  const { lat, lon } = useCoords();
-  const link = `${baseURL}${url}?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric${exclude}`;
+  const { lat, lng } = useCoords();
+  const link = `${baseURL}${url}?lat=${lat}&lon=${lng}&appid=${API_key}&units=metric${exclude}`;
   // console.log(link, "link");
 
   const { data, error, isLoading } = useSWR(link, fetcher);

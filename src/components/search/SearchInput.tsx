@@ -28,10 +28,10 @@ function SearchInput() {
         throw new Error(`Try again with different location`);
       }
 
-      const { lat, lon } = res[0];
+      const { lat, lng } = res[0];
 
       // console.log(lat, lon);
-      dispatch(setCoords({ lat, lon }));
+      dispatch(setCoords({ lat, lng }));
 
       //refetch through api endpoint
       dispatch(

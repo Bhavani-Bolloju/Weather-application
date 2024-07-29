@@ -31,15 +31,15 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
 
   const { coords, unit } = state.weather;
 
-  const { lat, lon } = coords;
+  const { lat, lng } = coords;
 
   let newArgs = args.url;
 
   const { url, params } = args;
 
-  if (lat && lon) {
+  if (lat && lng) {
     if (typeof args === "string") {
-      newArgs += `&lat=${lat}&lon=${lon}`;
+      newArgs += `&lat=${lat}&lng=${lng}`;
     } else if (typeof args === "object") {
       const urlStr = new URL(baseURL);
       for (const param of Object.entries(params)) {
@@ -48,7 +48,7 @@ const customBaseQuery: BaseQueryFn<QueryProps, unknown, unknown> = async (
       }
 
       urlStr.searchParams.set("lat", lat + "");
-      urlStr.searchParams.set("lon", lon + "");
+      urlStr.searchParams.set("lon", lng + "");
       urlStr.searchParams.set("units", unit);
 
       newArgs = url + urlStr.search;

@@ -13,9 +13,9 @@ const useCoords = function () {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (e) {
-        const { latitude: lat, longitude: lon } = e.coords;
+        const { latitude: lat, longitude: lng } = e.coords;
 
-        dispatch(setCoords({ lat, lon }));
+        dispatch(setCoords({ lat, lng }));
       },
       function (err) {
         alert(`${err}`);

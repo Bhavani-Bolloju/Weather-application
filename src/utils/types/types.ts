@@ -96,8 +96,13 @@ export interface CurrentWeather {
 
 export interface OnecallCurrentWeather {
   lat: number;
-  lon: number;
+  lng: number;
   timezone: string;
   timezone_offset: number;
   current: CurrentWeather;
 }
+
+export type OptionType = {
+  value: number;
+  label: string;
+};
