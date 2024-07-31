@@ -1,16 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { PayloadAction } from "@reduxjs/toolkit";
 // import { RootState } from "./store";
-
-interface Coords {
-  lat: number;
-  lng: number;
-}
+import { OptionType, Coords } from "../types/types";
+import { options } from "../types/types";
 
 interface WeatherState {
   coords: Coords;
   mapCoords: Coords;
   unit: string;
+  searchType: OptionType[];
 }
 
 const initialState: WeatherState = {
@@ -22,7 +20,8 @@ const initialState: WeatherState = {
     lat: 0,
     lng: 0
   },
-  unit: "metric"
+  unit: "metric",
+  searchType: [options[0]]
 };
 export const weatherSlice = createSlice({
   name: "weather",
@@ -37,10 +36,14 @@ export const weatherSlice = createSlice({
     },
     setMapCoords: (state, action) => {
       state.mapCoords = action.payload;
+    },
+    selectSearchType: (state, action) => {
+      state.searchType = action.payload;
     }
   }
 });
 
-export const { setCoords, setUnit, setMapCoords } = weatherSlice.actions;
+export const { setCoords, setUnit, setMapCoords, selectSearchType } =
+  weatherSlice.actions;
 
 export default weatherSlice.reducer;

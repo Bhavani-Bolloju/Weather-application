@@ -26,7 +26,7 @@ const useFetch = function (url: string, exclude: string = "") {
   return { data, error, isLoading };
 };
 
-export default useFetch;
+// export default useFetch;
 
 /*
 https://api.openweathermap.org/data/2.5/

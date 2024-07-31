@@ -15,7 +15,9 @@ const useCoords = function () {
       function (e) {
         const { latitude: lat, longitude: lng } = e.coords;
 
-        dispatch(setCoords({ lat, lng }));
+        const coordsObj = { lat: +lat.toFixed(3), lng: +lng.toFixed(3) };
+
+        dispatch(setCoords(coordsObj));
       },
       function (err) {
         alert(`${err}`);
@@ -23,8 +25,6 @@ const useCoords = function () {
       options
     );
   }, [dispatch]);
-
-  // return coords;
 };
 
 export default useCoords;
