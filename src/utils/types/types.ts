@@ -1,5 +1,9 @@
 // import { omit } from "utility-types";
 
+export interface Coords {
+  lat: number;
+  lng: number;
+}
 export interface DataPoint {
   x: string;
   y: number;
@@ -96,8 +100,24 @@ export interface CurrentWeather {
 
 export interface OnecallCurrentWeather {
   lat: number;
-  lon: number;
+  lng: number;
   timezone: string;
   timezone_offset: number;
   current: CurrentWeather;
 }
+
+export type OptionType = {
+  value: number;
+  label: string;
+};
+
+export const options = [
+  {
+    value: 1,
+    label: "Enter Location"
+  },
+  {
+    value: 2,
+    label: "Pick Location"
+  }
+];

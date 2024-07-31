@@ -13,9 +13,11 @@ const useCoords = function () {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (e) {
-        const { latitude: lat, longitude: lon } = e.coords;
+        const { latitude: lat, longitude: lng } = e.coords;
 
-        dispatch(setCoords({ lat, lon }));
+        const coordsObj = { lat: +lat.toFixed(3), lng: +lng.toFixed(3) };
+
+        dispatch(setCoords(coordsObj));
       },
       function (err) {
         alert(`${err}`);
@@ -23,8 +25,6 @@ const useCoords = function () {
       options
     );
   }, [dispatch]);
-
-  // return coords;
 };
 
 export default useCoords;

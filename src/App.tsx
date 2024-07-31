@@ -1,10 +1,6 @@
-// import React from "react";
-// import { useEffect } from "react";
-// import useFetch from "./utils/customHoooks/useFetch";
-// import useCoords from "./utils/customHoooks/useCoords";
 import Homepage from "./pages/Homepage";
-import useCoords from "./utils/customHoooks/useCoords";
 
+import useCoords from "./utils/customHoooks/useCoords";
 // import { useAppSelector } from "./utils/redux-store/hooks";
 // import { useGetCurrentWeatherQuery } from "./utils/redux-store/weatherApi";
 // import { useEffect, useState } from "react";
@@ -18,18 +14,18 @@ function App() {
   //   skip
   // });
 
-  // // console.log(data);
+  // console.log(data);
 
   // useEffect(() => {
-  //   if (coords.lat && coords.lon) {
+  //   if (coords.lat && coords.lng) {
   //     if (skip) {
   //       setSkip(false);
   //     }
   //   }
-  // }, [coords.lat, coords.lon, skip]);
+  // }, [coords.lat, coords.lng, skip]);
 
   return (
-    <div className="font-barlow font-normal text-base text-slate-700 min-h-screen bg-slate-50 py-10">
+    <div className="font-barlow font-normal text-base text-slate-700 min-h-screen py-10">
       <Homepage />
     </div>
   );
