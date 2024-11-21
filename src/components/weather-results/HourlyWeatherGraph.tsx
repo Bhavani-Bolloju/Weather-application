@@ -1,6 +1,6 @@
 // import { useRef, useEffect } from "react";
-import AreaGraph from "./AreaGraph";
-import { HourlyDataProp } from "../../utils/types/types";
+import AreaGraph from './AreaGraph'
+import { HourlyDataProp } from '../../utils/types/types'
 
 // const data = [
 //   {
@@ -33,34 +33,34 @@ import { HourlyDataProp } from "../../utils/types/types";
 
 //nivo
 function HourlyWeatherGraph() {
-  let weatherData;
+   let weatherData
 
-  const storedData = localStorage.getItem("onecall");
+   const storedData = localStorage.getItem('onecall')
 
-  if (storedData) {
-    weatherData = JSON.parse(storedData);
-  }
+   if (storedData) {
+      weatherData = JSON.parse(storedData)
+   }
 
-  const first24Hrs = weatherData?.hourly
-    ?.slice(0, 24)
-    .filter((_: unknown, i: number) => i % 2);
+   const first24Hrs = weatherData?.hourly
+      ?.slice(0, 24)
+      .filter((_: unknown, i: number) => i % 2)
 
-  const filteredData = first24Hrs?.map((data: HourlyDataProp) => {
-    return { x: data.dt, y: data.temp };
-  });
+   const filteredData = first24Hrs?.map((data: HourlyDataProp) => {
+      return { x: data.dt, y: data.temp }
+   })
 
-  const formatData = [
-    {
-      id: "Dataset 1",
-      data: filteredData
-    }
-  ];
+   const formatData = [
+      {
+         id: 'Dataset 1',
+         data: filteredData,
+      },
+   ]
 
-  return (
-    <div style={{ height: 280, width: "98%" }} className="mt-10">
-      {formatData && <AreaGraph data={formatData} />}
-    </div>
-  );
+   return (
+      <div style={{ height: 280, width: '98%' }} className="mt-10">
+         {formatData && <AreaGraph data={formatData} />}
+      </div>
+   )
 }
 
-export default HourlyWeatherGraph;
+export default HourlyWeatherGraph

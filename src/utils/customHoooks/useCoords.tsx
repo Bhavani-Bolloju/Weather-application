@@ -1,30 +1,30 @@
-import { useEffect } from "react";
-import { useAppDispatch } from "../redux-store/hooks";
-import { setCoords } from "../redux-store/weatherSlice";
+import { useEffect } from 'react'
+import { useAppDispatch } from '../redux-store/hooks'
+import { setCoords } from '../redux-store/weatherSlice'
 
 const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
+   enableHighAccuracy: true,
+   timeout: 5000,
+   maximumAge: 0,
+}
 const useCoords = function () {
-  const dispatch = useAppDispatch();
+   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      function (e) {
-        const { latitude: lat, longitude: lng } = e.coords;
+   useEffect(() => {
+      navigator.geolocation.getCurrentPosition(
+         function (e) {
+            const { latitude: lat, longitude: lng } = e.coords
 
-        const coordsObj = { lat: +lat.toFixed(3), lng: +lng.toFixed(3) };
+            const coordsObj = { lat: +lat.toFixed(3), lng: +lng.toFixed(3) }
 
-        dispatch(setCoords(coordsObj));
-      },
-      function (err) {
-        alert(`${err}`);
-      },
-      options
-    );
-  }, [dispatch]);
-};
+            dispatch(setCoords(coordsObj))
+         },
+         function (err) {
+            alert(`${err}`)
+         },
+         options,
+      )
+   }, [dispatch])
+}
 
-export default useCoords;
+export default useCoords

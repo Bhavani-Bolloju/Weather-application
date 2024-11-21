@@ -1,2 +1,3 @@
 # Weather-application
-Advanced weather application 
+
+Advanced weather application
