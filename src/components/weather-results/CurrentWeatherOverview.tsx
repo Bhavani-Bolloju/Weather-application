@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import sunrise from '../../assets/sunrise.svg'
 import sunset from '../../assets/sunset.svg'
@@ -9,10 +9,10 @@ import humidity from '../../assets/humidity.svg'
 import WindHumidityCard from '../UI/WindHumidityCardProps'
 import SunriseSunsetCard from '../UI/SunriseSunsetCard'
 import { format } from 'date-fns'
-import { useAppDispatch, useAppSelector } from '../../utils/redux-store/hooks'
-import { setUnit } from '../../utils/redux-store/weatherSlice'
-import { weatherApi } from '../../utils/redux-store/weatherApi'
-import { useGetCurrentWeatherQuery } from '../../utils/redux-store/weatherApi'
+// import { useAppDispatch, useAppSelector } from '../../utils/redux-store/hooks'
+// import { setUnit } from '../../utils/redux-store/weatherSlice'
+// import { weatherApi } from '../../utils/redux-store/weatherApi'
+// import { useGetCurrentWeatherQuery } from '../../utils/redux-store/weatherApi'
 
 // import { useGetCurrentWeatherQuery } from "../../utils/redux-store/weatherApi";
 // import useCoords from "../../utils/customHoooks/useCoords";

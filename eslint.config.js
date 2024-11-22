@@ -15,8 +15,14 @@ export default [
    pluginReact.configs.flat.recommended,
    {
       rules: {
-         'no-unused-var': 'error',
+         'react/react-in-jsx-scope': 'off',
+         'no-unused-vars': 'error',
          'no-undef': 'error',
+      },
+      settings: {
+         react: {
+            version: 'detect',
+         },
       },
    },
    eslintConfigPrettier,
