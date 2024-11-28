@@ -1,7 +1,7 @@
 // import React from 'react'
 import { ResponsiveLine, PointTooltipProps } from '@nivo/line'
 
-import { Dataset } from '../../utils/types/types'
+import { Dataset } from '@utils/types/types'
 
 import { format } from 'date-fns'
 

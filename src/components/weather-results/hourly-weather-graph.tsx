@@ -1,5 +1,5 @@
 // import { useRef, useEffect } from "react";
-import AreaGraph from './AreaGraph'
+import AreaGraph from './area-graph'
 import { HourlyDataProp } from '../../utils/types/types'
 
 // const data = [

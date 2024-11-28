@@ -2,7 +2,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 
-import LocationMarker from './LocationMarker'
+import LocationMarker from './location-marker'
 
 function SearchPickMap() {
    return (

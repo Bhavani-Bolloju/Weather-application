@@ -1,6 +1,6 @@
 // import React from 'react'
 import { DailyDataProp } from '../../utils/types/types'
-import DayWeather from './DayWeather'
+import DayWeather from './day-weather'
 import {
    CarouselProvider,
    Slider,
@@ -17,7 +17,7 @@ function DailyWeatherDetails() {
       data = JSON.parse(storedData)
    }
 
-   const daily = data?.daily
+   // const daily = data?.daily
    // console.log(daily);
 
    return (

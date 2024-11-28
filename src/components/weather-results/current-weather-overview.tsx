@@ -6,8 +6,8 @@ import wind from '../../assets/wind.svg'
 import humidity from '../../assets/humidity.svg'
 // import temperature from "../../assets/temperature.svg";
 
-import WindHumidityCard from '../UI/WindHumidityCardProps'
-import SunriseSunsetCard from '../UI/SunriseSunsetCard'
+import WindHumidityCard from '../ui/wind-humidity-card-props'
+import SunriseSunsetCard from '../ui/sunrise-sunset-card'
 import { format } from 'date-fns'
 // import { useAppDispatch, useAppSelector } from '../../utils/redux-store/hooks'
 // import { setUnit } from '../../utils/redux-store/weatherSlice'

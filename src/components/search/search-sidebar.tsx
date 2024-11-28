@@ -1,8 +1,8 @@
 // import SearchInput from "./SearchInput";
 // import { useState } from "react";
-import SearchPickMap from './SearchPickMap'
+import SearchPickMap from './search-pick-map'
 // import { OptionType } from "../../utils/types/types";
-import SearchForm from './SearchForm'
+import SearchForm from './search-form'
 
 function SearchSideBar() {
    return (
