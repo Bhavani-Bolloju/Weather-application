@@ -1,6 +1,6 @@
 // import React from "react";
 import { format } from 'date-fns'
-import { DayWeatherProp } from '../../utils/types/types'
+import { DayWeatherProp } from '../../types/types'
 import { Slide } from 'pure-react-carousel'
 
 function DayWeather({

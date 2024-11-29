@@ -1,7 +1,7 @@
 // import React from "react";
-import CurrentWeatherOverview from './current-weather-overview'
-import HourlyWeatherGraph from './hourly-weather-graph'
-import DailyWeatherDetails from './daily-weather-details'
+import CurrentWeatherOverview from '@/features/current-weather/current-weather-overview'
+import HourlyWeatherGraph from './hourly-weather/hourly-weather-graph'
+import DailyWeatherDetails from '@/features/daily-weather/daily-weather-details'
 
 // import { useAppSelector } from "../../utils/redux-store/hooks";
 

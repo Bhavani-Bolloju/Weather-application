@@ -52,12 +52,24 @@ export default [
             node: true,
          },
       },
+      // overrides: [
+      //    {
+      //       files: ['src/hooks/**'],
+      //       rules: {
+      //          'unicorn/filename-case': 'off',
+      //       },
+      //    },
+      // ],
    },
    eslintConfigPrettier,
 
    // Override for vite.config.ts file naming convention to ignore
    {
-      files: ['vite.config.ts'],
+      files: [
+         'vite.config.ts',
+         'src/hooks/useCoords.tsx',
+         'src/hooks/useFetch.tsx',
+      ],
       rules: {
          'check-file/filename-naming-convention': 'off',
       },

@@ -1,15 +1,13 @@
 import type { LeafletEvent } from 'leaflet'
 import { useEffect, useState } from 'react'
 
-import { useAppSelector, useAppDispatch } from '../../utils/redux-store/hooks'
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
 
 import { Marker, Popup, useMapEvents } from 'react-leaflet'
-import {
-   setMapCoords,
-   selectSearchType,
-} from '../../utils/redux-store/weatherSlice'
 
-import { options } from '../../utils/types/types'
+import { setMapCoords, selectSearchType } from '@/store/weather-slice'
+
+import { options } from '../../types/types'
 
 function LocationMarker() {
    const { coords, searchType } = useAppSelector((state) => state.weather)

@@ -1,16 +1,19 @@
 import Select from 'react-dropdown-select'
 
-import { useAppSelector, useAppDispatch } from '../../utils/redux-store/hooks'
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
+
 import {
    selectSearchType,
    setMapCoords,
    setCoords,
-} from '../../utils/redux-store/weatherSlice'
+} from '@/store/weather-slice'
+
 import React, { useRef } from 'react'
-import { options } from '../../utils/types/types'
-import { weatherApi } from '../../utils/redux-store/weatherApi'
-import { API_key } from '../../utils/constants/constants'
-import { Coords } from '../../utils/types/types'
+import { options } from '@/types/types'
+import { weatherApi } from '@/store/weather-api'
+import { API_key } from '@utils/constants/constants'
+
+import { Coords } from '@/types/types'
 
 function SearchForm() {
    const { mapCoords, searchType } = useAppSelector((state) => state.weather)

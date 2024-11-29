@@ -1,6 +1,6 @@
 import Homepage from '@pages/home-page'
 
-import useCoords from '@utils/customHoooks/useCoords'
+import useCoords from '@/hooks/useCoords'
 
 // import useCoords from ''
 // import { useAppSelector } from ".sr/utils/redux-store/hooks";

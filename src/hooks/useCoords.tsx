@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { useAppDispatch } from '../redux-store/hooks'
-import { setCoords } from '../redux-store/weatherSlice'
+
+import { useAppDispatch } from '@/store/hooks'
+import { setCoords } from '@/store/weather-slice'
 
 const options = {
    enableHighAccuracy: true,

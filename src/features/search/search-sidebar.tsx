@@ -1,6 +1,7 @@
 // import SearchInput from "./SearchInput";
 // import { useState } from "react";
-import SearchPickMap from './search-pick-map'
+
+import SearchPickMap from '../map/search-pick-map'
 // import { OptionType } from "../../utils/types/types";
 import SearchForm from './search-form'
 

@@ -121,3 +121,9 @@ export const options = [
       label: 'Pick Location',
    },
 ]
+
+export type Temp = {
+   temp: number
+   tempUnit: string
+   icon: string
+}

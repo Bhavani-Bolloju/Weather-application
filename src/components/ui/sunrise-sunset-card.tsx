@@ -31,15 +31,3 @@ const SunriseSunsetCard = function ({
 }
 
 export default SunriseSunsetCard
-
-{
-   /* <div>
-<div className="flex items-center justify-center ">
-  <img src={icon} alt={title} className="w-[25px]  h-[28px]" />
-  <p className="text-slate-500 capitalize font-medium">{title}</p>
-</div>
-<p className="text-slate-600 font-medium ml-2 capitalize mt-[-2px]">
-  {formatTime}
-</p>
-</div> */
-}

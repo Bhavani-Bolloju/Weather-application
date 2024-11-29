@@ -1,5 +1,5 @@
 // import React from 'react'
-import { DailyDataProp } from '../../utils/types/types'
+import { DailyDataProp } from '../../types/types'
 import DayWeather from './day-weather'
 import {
    CarouselProvider,
@@ -16,9 +16,6 @@ function DailyWeatherDetails() {
    if (storedData) {
       data = JSON.parse(storedData)
    }
-
-   // const daily = data?.daily
-   // console.log(daily);
 
    return (
       <div className="mt-10 mx-5 relative">
