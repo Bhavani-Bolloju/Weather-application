@@ -14,3 +14,7 @@ The aim is to display the current weather in detail, an hourly forecast on the g
 - Prettier
 - Husky
 - Typescript
+- Absolute imports
+- file/folder naming convention
+
+## Project structure
